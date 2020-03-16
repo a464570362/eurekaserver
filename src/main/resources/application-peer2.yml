@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: eureka-server
+server:
+  port: 7002
+eureka:
+  instance:
+    hostname: peer2
+  client:
+    #默认设置下，该服务注册中心也会将自己作为客户端来尝试注册它自己，所以我们需要禁用它的客户端注册行为
+    #表示是否将自己注册到 Eureka Server，默认为 true。
+    register-with-eureka: true
+    #表示是否从 Eureka Server 获取注册信息，默认为 true。
+    fetch-registry: true
+    service-url:
+      defaultZone: http://peer2:7001/eureka/
+

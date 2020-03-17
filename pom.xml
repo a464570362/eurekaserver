@@ -16,15 +16,25 @@
     <packaging>jar</packaging>
     <properties>
         <java.version>1.8</java.version>
-        <spring-cloud.version>Greenwich.SR2</spring-cloud.version>
+        <spring-cloud.version>Finchley.SR2</spring-cloud.version>
     </properties>
 
     <dependencies>
+        <!--eureka服务端-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
         </dependency>
-
+        <!--配置中心依赖包-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-config-server</artifactId>
+        </dependency>
+        <!--仅修改客户端，就可以实现 refresh 的功能 配置中心有修改会实时刷新 可以监控程序在运行时状态，其中就包括 /actuator/refresh 的功能-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
